@@ -30,7 +30,7 @@ class RestaurantServiceImplTest {
 
     @Test
     void testThatExceptionIsThrownIfCityDoesNotExist(){
-        assertThrows(CityNotFoundException.class, ()-> restaurantService.getRestaurantsByCity("Abakaliki"));
+        assertThrows(CityNotFoundException.class, ()-> restaurantService.getRestaurantsByCity("lagos"));
     }
 
 }
