@@ -2,7 +2,9 @@ package com.github.servbytebackend.web.controller;
 
 import com.github.servbytebackend.data.enums.City;
 import com.github.servbytebackend.data.model.Restaurant;
+import com.github.servbytebackend.exceptions.CityNotFoundException;
 import com.github.servbytebackend.services.RestaurantService;
+import com.github.servbytebackend.web.payload.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +19,11 @@ import org.springframework.test.web.servlet.ResultMatcher;
 
 import java.util.List;
 
+import static org.hamcrest.Matchers.hasSize;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.doThrow;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -63,11 +69,30 @@ class RestaurantControllerTest {
                 .logoUrl("https://res.cloudinary.com/inclutab/image/upload/v1652788441/servByte/restaurant/Cilantro_ho2vym.png")
                 .phoneNumber("08076543210").build();
 
-        List<Restaurant> response = List.of(restaurant1, restaurant2);
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setStatus("success");
+        apiResponse.getData().put("restaurants", List.of(restaurant1, restaurant2));
+        apiResponse.getData().put("totalNumberOfRestaurants", 2);
 
-        doReturn(response).when(restaurantService).getRestaurantsByCity("lagos");
+        doReturn(apiResponse).when(restaurantService).getRestaurantsByCity("lagos");
 
-        this.mockMvc.perform(get("/api/v1/")).andDo(print()).andExpect(status().isFound())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+        this.mockMvc.perform(get("/api/v1/restaurants/lagos")).andDo(print()).andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.status", is("success")))
+                .andExpect(jsonPath("$.data.totalNumberOfRestaurants", is(2)))
+                .andExpect(jsonPath("$.data.restaurants", hasSize(2)));
+
+    }
+
+
+    @Test
+    void testThatExceptionIsThrownIfCityDoesNotExist() throws Exception {
+        doThrow(CityNotFoundException.class).when(restaurantService).getRestaurantsByCity("abakaliki");
+        this.mockMvc.perform(get("/api/v1/restaurants/abakaliki"))
+                .andDo(print())
+                // test status
+                .andExpect(status().isBadRequest())
+                // test resolved exception
+                .andExpect(result -> assertTrue(result.getResolvedException() instanceof CityNotFoundException));
     }
 }

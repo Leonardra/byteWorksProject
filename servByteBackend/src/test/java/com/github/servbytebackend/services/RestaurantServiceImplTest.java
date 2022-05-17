@@ -4,6 +4,7 @@ import com.github.servbytebackend.data.enums.City;
 import com.github.servbytebackend.data.model.Restaurant;
 import com.github.servbytebackend.data.repository.RestaurantRepository;
 import com.github.servbytebackend.exceptions.CityNotFoundException;
+import com.github.servbytebackend.web.payload.ApiResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,13 +25,13 @@ class RestaurantServiceImplTest {
 
     @Test
     void testThatRestaurantCanBeSearchedByCity(){
-        List<Restaurant> restaurantList = restaurantService.getRestaurantsByCity("lagos");
-        assertEquals(restaurantList.size(), 7);
+        ApiResponse restaurantResponse = restaurantService.getRestaurantsByCity("lagos");
+        assertEquals(restaurantResponse.getData().get("totalNumberOfRestaurants"), 7);
     }
 
     @Test
     void testThatExceptionIsThrownIfCityDoesNotExist(){
-        assertThrows(CityNotFoundException.class, ()-> restaurantService.getRestaurantsByCity("lagos"));
+        assertThrows(CityNotFoundException.class, ()-> restaurantService.getRestaurantsByCity("abakaliki"));
     }
 
 }
