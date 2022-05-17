@@ -7,13 +7,14 @@ import com.github.servbytebackend.data.model.Restaurant;
 import com.github.servbytebackend.data.repository.MealRepository;
 import com.github.servbytebackend.data.repository.RestaurantRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Component
+@Configuration
 @RequiredArgsConstructor
 public class InitialiseDatabase {
 
@@ -104,6 +105,7 @@ public class InitialiseDatabase {
 
         List<Restaurant> restaurants = List.of(restaurant1, restaurant2, restaurant3, restaurant4, restaurant5,
                 restaurant6, restaurant7, restaurant8, restaurant9, restaurant10);
+        restaurantRepository.saveAll(restaurants);
 
         Meal meal1 = Meal.builder().mealName("Jollof Rice").description("Jollof, or jollof rice, is a rice dish from " +
                 "Senegal. The dish is typically made with long-grain rice, tomatoes, onions, spices, vegetables and " +
@@ -165,6 +167,5 @@ public class InitialiseDatabase {
 
         mealRepository.saveAll(meals);
 
-        restaurantRepository.saveAll(restaurants);
     }
 }
