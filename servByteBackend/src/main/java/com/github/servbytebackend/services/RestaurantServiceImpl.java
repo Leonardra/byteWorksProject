@@ -4,6 +4,7 @@ package com.github.servbytebackend.services;
 import com.github.servbytebackend.data.enums.City;
 import com.github.servbytebackend.data.model.Restaurant;
 import com.github.servbytebackend.data.repository.RestaurantRepository;
+import com.github.servbytebackend.exceptions.CityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,13 @@ public class RestaurantServiceImpl implements RestaurantService{
 
     @Override
     public List<Restaurant> getRestaurantsByCity(String cityStr) {
-        City city = City.valueOf(cityStr.toUpperCase());
+        City city;
+        try {
+            city = City.valueOf(cityStr.toUpperCase());
+        }catch(IllegalArgumentException ex){
+            throw new CityNotFoundException("This restaurant is not in this city");
+        }
+
         return restaurantRepository.findByCity(city);
     }
 }
