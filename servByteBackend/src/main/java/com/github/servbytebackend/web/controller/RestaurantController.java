@@ -29,7 +29,6 @@ public class RestaurantController {
 
     @GetMapping(value="/restaurants/", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-
     public ApiResponse getRestaurants(){
         return restaurantService.getAll();
     }
