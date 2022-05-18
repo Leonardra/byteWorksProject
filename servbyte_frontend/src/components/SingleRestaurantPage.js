@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Card, CardActionArea, CardContent, CardMedia, Container, Grid, Stack, Typography} from "@mui/material";
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
-import SingleMeal from "./SingleMeal";
+import SingleMeal from "./SingleMealCard";
 import RestaurantCard from "./RestaurantCard";
 
 const SingleRestaurantPage = () => {
