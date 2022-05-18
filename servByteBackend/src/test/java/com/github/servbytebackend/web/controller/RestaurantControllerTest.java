@@ -81,7 +81,6 @@ class RestaurantControllerTest {
                 .andExpect(jsonPath("$.status", is("success")))
                 .andExpect(jsonPath("$.data.totalNumberOfRestaurants", is(2)))
                 .andExpect(jsonPath("$.data.restaurants", hasSize(2)));
-
     }
 
 
@@ -94,5 +93,42 @@ class RestaurantControllerTest {
                 .andExpect(status().isBadRequest())
                 // test resolved exception
                 .andExpect(result -> assertTrue(result.getResolvedException() instanceof CityNotFoundException));
+    }
+
+    @Test
+    void testGetAllRestaurants() throws Exception {
+        Restaurant restaurant1 = Restaurant.builder()
+                .restaurantName("Cilantro")
+                .city(City.LAGOS)
+                .emailAddress("cilantro@gmail.com")
+                .logoUrl("https://res.cloudinary.com/inclutab/image/upload/v1652788441/servByte/restaurant/Cilantro_ho2vym.png")
+                .phoneNumber("08076543210").build();
+
+        Restaurant restaurant2 = Restaurant.builder()
+                .restaurantName("Crunchies")
+                .city(City.LAGOS)
+                .emailAddress("crunchiesng@yahoo.com")
+                .logoUrl("https://res.cloudinary.com/inclutab/image/upload/v1652788441/servByte/restaurant/Crunchies_jl7sbn.png")
+                .phoneNumber("09068685949")
+                .build();
+        Restaurant restaurant3 = Restaurant.builder()
+                .restaurantName("Cilantro")
+                .city(City.ABUJA)
+                .emailAddress("cilantro@gmail.com")
+                .logoUrl("https://res.cloudinary.com/inclutab/image/upload/v1652788441/servByte/restaurant/Cilantro_ho2vym.png")
+                .phoneNumber("08076543210").build();
+
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setStatus("success");
+        apiResponse.getData().put("restaurants", List.of(restaurant1, restaurant2, restaurant3));
+        apiResponse.getData().put("totalNumberOfRestaurants", 3);
+
+        doReturn(apiResponse).when(restaurantService).getAll();
+
+        this.mockMvc.perform(get("/api/v1/restaurants/")).andDo(print()).andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andExpect(jsonPath("$.status", is("success")))
+                .andExpect(jsonPath("$.data.totalNumberOfRestaurants", is(3)))
+                .andExpect(jsonPath("$.data.restaurants", hasSize(3)));
     }
 }

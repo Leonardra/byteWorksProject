@@ -27,6 +27,9 @@ public class InitialiseDatabase {
                 .restaurantName("Cilantro")
                 .city(City.ABUJA)
                 .emailAddress("cilantro@gmail.com")
+                .description("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
+                        "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation" +
+                        " ullamco laboris nisi ut aliquip ex ea commodo consequat.")
                 .logoUrl("https://res.cloudinary.com/inclutab/image/upload/v1652788441/servByte/restaurant/Cilantro_ho2vym.png")
                 .phoneNumber("08076543210").build();
 
@@ -34,6 +37,9 @@ public class InitialiseDatabase {
                 .restaurantName("Crunchies")
                 .city(City.LAGOS)
                 .emailAddress("crunchiesng@yahoo.com")
+                .description("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
+                        "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation" +
+                        " ullamco laboris nisi ut aliquip ex ea commodo consequat.")
                 .logoUrl("https://res.cloudinary.com/inclutab/image/upload/v1652788441/servByte/restaurant/Crunchies_jl7sbn.png")
                 .phoneNumber("09068685949")
                 .build();
@@ -42,6 +48,9 @@ public class InitialiseDatabase {
                 .restaurantName("The Real Jollof Co.")
                 .city(City.LAGOS)
                 .emailAddress("thejollofco@gmail.com")
+                .description("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
+                        "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation" +
+                        " ullamco laboris nisi ut aliquip ex ea commodo consequat.")
                 .logoUrl("https://res.cloudinary.com/inclutab/image/upload/v1652788444/servByte/restaurant/The_Real_Jollof_Co_aeeny5.png")
                 .phoneNumber("09126363732")
                 .build();
@@ -50,6 +59,9 @@ public class InitialiseDatabase {
                 .restaurantName("The Place")
                 .city(City.ASABA)
                 .emailAddress("theplace@gmail.com")
+                .description("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
+                        "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation" +
+                        " ullamco laboris nisi ut aliquip ex ea commodo consequat.")
                 .logoUrl("https://res.cloudinary.com/inclutab/image/upload/v1652788444/servByte/restaurant/The_place_jxuckq.png")
                 .phoneNumber("091263637880")
                 .build();
@@ -58,6 +70,9 @@ public class InitialiseDatabase {
                 .restaurantName("The Place")
                 .city(City.LAGOS)
                 .emailAddress("theplace@gmail.com")
+                .description("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
+                        "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation" +
+                        " ullamco laboris nisi ut aliquip ex ea commodo consequat.")
                 .logoUrl("https://res.cloudinary.com/inclutab/image/upload/v1652788444/servByte/restaurant/The_place_jxuckq.png")
                 .phoneNumber("091263637880")
                 .build();
@@ -66,6 +81,9 @@ public class InitialiseDatabase {
                 .restaurantName("Taste Nigeria")
                 .city(City.OWERRI)
                 .emailAddress("tasteng@gmail.com")
+                .description("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
+                        "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation" +
+                        " ullamco laboris nisi ut aliquip ex ea commodo consequat.")
                 .logoUrl("https://res.cloudinary.com/inclutab/image/upload/v1652788444/servByte/restaurant/TasteNg_ppjsiw.png")
                 .phoneNumber("08123737738")
                 .build();
@@ -74,6 +92,9 @@ public class InitialiseDatabase {
                 .restaurantName("Mount Holly")
                 .city(City.LAGOS)
                 .emailAddress("mountholly@gmail.com")
+                .description("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
+                        "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation" +
+                        " ullamco laboris nisi ut aliquip ex ea commodo consequat.")
                 .logoUrl("https://res.cloudinary.com/inclutab/image/upload/v1652788443/servByte/restaurant/Mount_Holly_shcw5i.png")
                 .phoneNumber("07034532265")
                 .build();
@@ -82,6 +103,9 @@ public class InitialiseDatabase {
                 .restaurantName("The Real Jollof Co.")
                 .city(City.LAGOS)
                 .emailAddress("thejollofco@gmail.com")
+                .description("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
+                        "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation" +
+                        " ullamco laboris nisi ut aliquip ex ea commodo consequat.")
                 .logoUrl("https://res.cloudinary.com/inclutab/image/upload/v1652788444/servByte/restaurant/The_Real_Jollof_Co_aeeny5.png")
                 .phoneNumber("09126363732")
                 .build();
@@ -90,6 +114,9 @@ public class InitialiseDatabase {
                 .restaurantName("The Real Jollof Co.")
                 .city(City.LAGOS)
                 .emailAddress("thejollofco@gmail.com")
+                .description("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
+                        "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation" +
+                        " ullamco laboris nisi ut aliquip ex ea commodo consequat.")
                 .logoUrl("https://res.cloudinary.com/inclutab/image/upload/v1652788444/servByte/restaurant/The_Real_Jollof_Co_aeeny5.png")
                 .phoneNumber("09126363732")
                 .build();
@@ -98,6 +125,9 @@ public class InitialiseDatabase {
                 .restaurantName("The Real Jollof Co.")
                 .city(City.LAGOS)
                 .emailAddress("thejollofco@gmail.com")
+                .description("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
+                        "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation" +
+                        " ullamco laboris nisi ut aliquip ex ea commodo consequat.")
                 .logoUrl("https://res.cloudinary.com/inclutab/image/upload/v1652788444/servByte/restaurant/The_Real_Jollof_Co_aeeny5.png")
                 .phoneNumber("09126363732")
                 .build();
