@@ -11,13 +11,13 @@ const LandingPage = () => {
                 <Typography fontSize="50px" fontWeight="700" color="#210a72">Endless Categories</Typography>
                 <Typography>The #1 marketplace in Africa</Typography>
             </Stack>
-            <Stack direction="column" spacing={5} marginTop="2rem" onClick={() => navigate("/search")}>
+            <Stack direction="column" spacing={5} marginTop="2rem" onClick={() => navigate("/restaurants")}>
                 <Grid spacing={5} container lg={12} >
                     <Grid item lg={6} spacing={10} >
                         <Stack direction ="column" backgroundColor="#57f1b1" sx={{ maxWidth: 745}} height="10rem"
                                borderRadius="0.5rem" alignItems="center" justifyContent="center">
                             <Typography fontSize="34px" fontWeight="500" color="#210a72">
-                                Food
+                                Restaurants
                             </Typography>
                         </Stack>
                     </Grid>
