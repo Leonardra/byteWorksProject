@@ -10,8 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value ="api/v1")
 @CrossOrigin
+@RequestMapping(value ="api/v1")
 @RequiredArgsConstructor
 @Slf4j
 public class RestaurantController {
@@ -34,7 +34,7 @@ public class RestaurantController {
 
 
     @GetMapping(value="/restaurant/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     public ApiResponse getRestaurantById(@PathVariable Long id){
         return restaurantService.getRestaurantById(id);
     }
