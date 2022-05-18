@@ -5,11 +5,13 @@ import {useNavigate} from "react-router-dom";
 const SingleMealCard = ({meal}) => {
 
     const navigate = useNavigate();
+
+
     return (
         <Grid
             item lg={4} spacing={10}
         >
-            <Card sx={{ maxWidth: 345, maxHeight: 560, backgroundColor:"#a5d5e4" }} onClick={()=> navigate(`/mealPage/${meal.id}`)}>
+            <Card sx={{ maxWidth: 345, maxHeight: 560, backgroundColor:"#a5d5e4" }} onClick={()=> navigate(`/singleMealPage/${meal.id}`)}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
