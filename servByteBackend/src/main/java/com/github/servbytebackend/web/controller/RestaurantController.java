@@ -31,4 +31,11 @@ public class RestaurantController {
     public ApiResponse getRestaurants(){
         return restaurantService.getAll();
     }
+
+
+    @GetMapping(value="/restaurant/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.FOUND)
+    public ApiResponse getRestaurantById(@PathVariable Long id){
+        return restaurantService.getRestaurantById(id);
+    }
 }

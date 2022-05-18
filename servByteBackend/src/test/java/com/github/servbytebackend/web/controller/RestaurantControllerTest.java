@@ -131,4 +131,27 @@ class RestaurantControllerTest {
                 .andExpect(jsonPath("$.data.totalNumberOfRestaurants", is(3)))
                 .andExpect(jsonPath("$.data.restaurants", hasSize(3)));
     }
+
+
+    @Test
+    void testThatRestaurantCanBeFound() throws Exception {
+        Restaurant restaurant1 = Restaurant.builder()
+                .id(1L)
+                .restaurantName("Cilantro")
+                .city(City.LAGOS)
+                .emailAddress("cilantro@gmail.com")
+                .logoUrl("https://res.cloudinary.com/inclutab/image/upload/v1652788441/servByte/restaurant/Cilantro_ho2vym.png")
+                .phoneNumber("08076543210").build();
+
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setStatus("success");
+        apiResponse.getData().put("restaurant", restaurant1);
+
+        doReturn(apiResponse).when(restaurantService).getRestaurantById(1L);
+
+        this.mockMvc.perform(get("/api/v1/restaurant/1")).andDo(print()).andExpect(status().isFound())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andExpect(jsonPath("$.status", is("success")))
+                .andExpect(jsonPath("$.data.restaurant.restaurantName", is("Cilantro")));
+    }
 }
