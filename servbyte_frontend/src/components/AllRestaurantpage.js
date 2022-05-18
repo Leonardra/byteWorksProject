@@ -22,7 +22,7 @@ const AllRestaurantPage = () => {
 
     const[restaurants, getRestaurants] = useState([]);
 
-    const url = "http://localhost:8080/api/v1/restaurants/"
+    const url = "http://localhost:8081/api/v1/restaurants/"
     const getAllRestaurants =  () =>{
         axios.get(`${url}`).then((response) =>{
             console.log("Response",response);

@@ -1,28 +1,28 @@
 import React from 'react';
 import {Card, CardActionArea, CardContent, CardMedia, Grid, Typography} from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
-const RestaurantCard = ({restaurant}) => {
+const SingleMealCard = ({meal}) => {
 
     const navigate = useNavigate();
     return (
         <Grid
             item lg={4} spacing={10}
         >
-            <Card sx={{ maxWidth: 345, backgroundColor:"#a5d5e4" }} onClick={()=>navigate(`/single/${restaurant.id}`)}>
+            <Card sx={{ maxWidth: 345, maxHeight: 560, backgroundColor:"#a5d5e4" }} onClick={()=> navigate(`/mealPage/${meal.id}`)}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
                         height="140"
-                        image={restaurant.logoUrl}
-                        alt={restaurant.restaurantName}
+                        image={meal.imageUrl}
+                        alt={meal.mealName}
                     />
                     <CardContent >
                         <Typography gutterBottom variant="h5" component="div" color="#210a72">
-                            {restaurant.restaurantName}
+                            {meal.mealName}
                         </Typography>
                         <Typography variant="body2" color="text.secondary" color="#210a72">
-                            {restaurant.description}
+                            {meal.description}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
@@ -31,4 +31,4 @@ const RestaurantCard = ({restaurant}) => {
     );
 };
 
-export default RestaurantCard;
+export default SingleMealCard;
