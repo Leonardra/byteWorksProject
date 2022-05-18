@@ -40,4 +40,10 @@ class RestaurantServiceImplTest {
         assertEquals(restaurantResponse.getData().get("totalNumberOfRestaurants"), 10);
     }
 
+    @Test
+    void testRepositoryCanFindRestaurantById(){
+        ApiResponse response = restaurantService.getRestaurantById(1L);
+        assertEquals(response.getData().get("restaurant").getClass(), Restaurant.class);
+    }
+
 }

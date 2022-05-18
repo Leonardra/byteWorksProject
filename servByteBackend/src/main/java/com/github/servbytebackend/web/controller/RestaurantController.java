@@ -1,7 +1,7 @@
 package com.github.servbytebackend.web.controller;
 
 
-import com.github.servbytebackend.exceptions.CityNotFoundException;
+import com.github.servbytebackend.services.MealService;
 import com.github.servbytebackend.services.RestaurantService;
 import com.github.servbytebackend.web.payload.ApiResponse;
 import lombok.RequiredArgsConstructor;
@@ -11,13 +11,14 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value ="api/v1")
 @CrossOrigin
+@RequestMapping(value ="api/v1")
 @RequiredArgsConstructor
 @Slf4j
 public class RestaurantController {
 
     public final RestaurantService restaurantService;
+    private final MealService mealService;
 
 
     @GetMapping(value="/restaurants/{city}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -31,5 +32,19 @@ public class RestaurantController {
     @ResponseStatus(HttpStatus.OK)
     public ApiResponse getRestaurants(){
         return restaurantService.getAll();
+    }
+
+
+    @GetMapping(value="/restaurant/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public ApiResponse getRestaurantById(@PathVariable Long id){
+        return restaurantService.getRestaurantById(id);
+    }
+
+
+    @GetMapping(value="/restaurant/{id}/meals")
+    @ResponseStatus(HttpStatus.OK)
+    public ApiResponse getMealsByRestaurant(@PathVariable Long id){
+        return mealService.getMealsByRestaurant(id);
     }
 }
