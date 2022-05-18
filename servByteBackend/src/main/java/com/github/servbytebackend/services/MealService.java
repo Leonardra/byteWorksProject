@@ -9,4 +9,5 @@ import org.springframework.stereotype.Service;
 public interface MealService {
 
     ApiResponse getMealsByRestaurant(Long id);
+    ApiResponse getMealsById(Long id);
 }

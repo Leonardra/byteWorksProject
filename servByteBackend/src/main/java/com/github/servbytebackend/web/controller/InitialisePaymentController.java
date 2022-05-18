@@ -4,20 +4,20 @@ import com.github.servbytebackend.services.InitialiseTransactionService;
 import com.github.servbytebackend.web.payload.InitialiseTransactionRequestDto;
 import com.github.servbytebackend.web.payload.InitialiseTransactionResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/")
-public class InitialisePayment {
+@RequestMapping("api/v1")
+public class InitialisePaymentController {
 
     @Autowired
     private InitialiseTransactionService initialiseTransactionService;
 
 
-    @RequestMapping(path = "/initializetransaction", method = RequestMethod.POST)
+    @PostMapping(value= "/initializeTransaction", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
     public InitialiseTransactionResponseDto initializeTransaction(@RequestBody InitialiseTransactionRequestDto initializeTransactionRequestDTO) {
         return initialiseTransactionService.initializeTransaction(initializeTransactionRequestDTO); }
 }

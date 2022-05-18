@@ -30,8 +30,10 @@ public class RestaurantController {
 
     @GetMapping(value="/restaurants/", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ApiResponse getRestaurants(){
-        return restaurantService.getAll();
+    public ApiResponse getRestaurants(@RequestParam(defaultValue = "") String city){
+        if (city.isEmpty())
+            return restaurantService.getAll();
+        return restaurantService.getRestaurantsByCity(city);
     }
 
 
@@ -47,4 +49,12 @@ public class RestaurantController {
     public ApiResponse getMealsByRestaurant(@PathVariable Long id){
         return mealService.getMealsByRestaurant(id);
     }
+
+
+    @GetMapping(value="/meal/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public ApiResponse getMealById(@PathVariable Long id){
+        return mealService.getMealsById(id);
+    }
+
 }
