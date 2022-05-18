@@ -10,4 +10,5 @@ import java.util.List;
 public interface RestaurantService {
     ApiResponse getRestaurantsByCity(String city);
     ApiResponse getAll();
+    ApiResponse getRestaurantById(Long id);
 }

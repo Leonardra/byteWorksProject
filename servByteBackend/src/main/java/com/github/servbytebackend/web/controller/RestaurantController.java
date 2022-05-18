@@ -1,7 +1,6 @@
 package com.github.servbytebackend.web.controller;
 
 
-import com.github.servbytebackend.exceptions.CityNotFoundException;
 import com.github.servbytebackend.services.RestaurantService;
 import com.github.servbytebackend.web.payload.ApiResponse;
 import lombok.RequiredArgsConstructor;
