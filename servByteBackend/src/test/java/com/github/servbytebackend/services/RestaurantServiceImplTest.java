@@ -34,4 +34,10 @@ class RestaurantServiceImplTest {
         assertThrows(CityNotFoundException.class, ()-> restaurantService.getRestaurantsByCity("abakaliki"));
     }
 
+    @Test
+    void testRepositoryCanGetAllRestaurants(){
+        ApiResponse restaurantResponse = restaurantService.getAll();
+        assertEquals(restaurantResponse.getData().get("totalNumberOfRestaurants"), 10);
+    }
+
 }

@@ -81,7 +81,6 @@ class RestaurantControllerTest {
                 .andExpect(jsonPath("$.status", is("success")))
                 .andExpect(jsonPath("$.data.totalNumberOfRestaurants", is(2)))
                 .andExpect(jsonPath("$.data.restaurants", hasSize(2)));
-
     }
 
 

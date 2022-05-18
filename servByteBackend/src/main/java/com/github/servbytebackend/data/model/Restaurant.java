@@ -22,6 +22,7 @@ public class Restaurant {
     private String restaurantName;
     private String emailAddress;
     private String phoneNumber;
+    private String description;
     @Enumerated(EnumType.STRING)
     private City city;
     private String logoUrl;

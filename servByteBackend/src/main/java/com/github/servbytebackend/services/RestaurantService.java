@@ -9,4 +9,5 @@ import java.util.List;
 @Service
 public interface RestaurantService {
     ApiResponse getRestaurantsByCity(String city);
+    ApiResponse getAll();
 }
