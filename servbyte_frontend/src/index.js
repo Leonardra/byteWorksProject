@@ -10,6 +10,7 @@ import AllRestaurantPage from "./components/AllRestaurantpage";
 import Nav from "./components/Nav";
 import SingleRestaurantPage from "./components/SingleRestaurantPage";
 import SingleMealPage from "./components/SingleMealPage";
+import PaymentPage from "./components/PaymentPage";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,7 @@ root.render(
               <Route path="/search" element={<RestaurantResultPage />} />
               <Route path="/single/:id" element={<SingleRestaurantPage/>}/>
               <Route path="/singleMealPage/:id" element={<SingleMealPage/>}/>
+              <Route path="/paymentPage/:amount" element={<PaymentPage/>}/>
           </Routes>
       </Router>
   </React.StrictMode>
