@@ -3,7 +3,6 @@ import {Card, CardActionArea, CardContent, CardMedia, Container, Grid, Stack, Ty
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import SingleMeal from "./SingleMealCard";
-import RestaurantCard from "./RestaurantCard";
 
 const SingleRestaurantPage = () => {
 

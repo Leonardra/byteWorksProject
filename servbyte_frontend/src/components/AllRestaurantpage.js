@@ -16,6 +16,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import RestaurantCard from "./RestaurantCard";
 
+
+
 const AllRestaurantPage = () => {
 
     const navigate = useNavigate();
@@ -24,6 +26,9 @@ const AllRestaurantPage = () => {
     const [error, setError] = useState(null);
 
     const[restaurants, getRestaurants] = useState([]);
+
+
+
 
     const handleSearchByCity = (e) => {
 
@@ -67,7 +72,9 @@ const AllRestaurantPage = () => {
                 <Stack>
                     <Paper component="form" sx={{p: '2px 4px', display: 'flex', alignItems: 'center', width: 400}}>
                         <InputBase sx={{ml: 1, flex: 1}} id="search" placeholder="Search Restaurant" value={city}
-                                   onChange={handleSearchByCity}/>
+                                   onChange={handleSearchByCity}
+
+                        />
                         <IconButton
                             onClick={handleSearch}
                         >
